@@ -4,6 +4,7 @@ from settings import settings
 from fastapi.middleware.cors import CORSMiddleware
 from orm import db
 from orm.db_setup import database, engine
+from api.next_dst import next_dst_api
 import logging
 
 description = """
@@ -45,6 +46,8 @@ async def startup():
 @app.on_event("shutdown")
 async def shutdown():
     logger.info("shutting down veldict-be service...")
+
+app.include_router(next_dst_api)
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

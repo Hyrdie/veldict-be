@@ -7,6 +7,7 @@ User = Table(
     metadata,
     Column('id', Integer, primary_key=True),
     Column('name', Text, nullable=True),
+    Column('password', Text)
 )
 
 User_Detail = Table(
@@ -37,7 +38,7 @@ Package_Detail = Table(
     Column('province', Text, nullable=True),
     Column('city', Text, nullable=True),
     Column('location', Text, nullable=True),
-    Column('language', Text, Nullable=True)
+    Column('language', Text, nullable=True)
 )
 
 Partner = Table(
@@ -53,4 +54,48 @@ Partner_Detail = Table(
     Column('partner_id', Integer, primary_key=True),
     Column('name', Text, nullable=False),
     Column('ratings', Integer, nullable=True)
+)
+
+Country = Table(
+    'country',
+    metadata,
+    Column('id', Integer, primary_key=True),
+    Column('name', String, nullable=False),
+    Column('image', Text, nullable=False),
+)
+
+Attraction = Table(
+    'attraction',
+    metadata,
+    Column('id', Integer, primary_key=True),
+    Column('name', String, nullable=False),
+    Column('image', Text, nullable=False),
+)
+
+Banner = Table(
+    'banner',
+    metadata,
+    Column('id', Integer, primary_key=True),
+    Column('name', String, nullable=False),
+    Column('desc', String, nullable=False),
+    Column('image', Text, nullable=False),
+)
+
+TourListing = Table(
+    'tour_listing',
+    metadata,
+    Column('id', Integer, primary_key=True),
+    Column('name', String, nullable=False),
+    Column('city', String, nullable=False),
+    Column('image', Text, nullable=False),
+    Column('price', String, nullable=False),
+)
+
+TourReview = Table(
+    'tour_review',
+    metadata,
+    Column('id', Integer, primary_key=True),
+    Column('name', String, nullable=False),
+    Column('city', String, nullable=False),
+    Column('image', Text, nullable=False),
 )
